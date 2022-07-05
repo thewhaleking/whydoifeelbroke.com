@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💸</text></svg>">
+	<title>Six Figga Fella</title>
+</head>
+<style type="text/css">
+	body {
+	  background-color: #1abc9c;
+	  color: white;
+	}
+</style>
+<body onload="inflate()">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-centered text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
+		</div>
+		<div class="row">
+			<div class="col text-center"><input type="number" name="yearBorn" id="yearBorn" value="1992" min="1947" max="2021"/></div>
+		</div>
+		<div class="row">
+			<div class="col-centered text-center">You would need to make </div>
+		</div>
+		<div class="row">
+			<div class="col-centered text-center"><h1 id="value"></h1></div>
+		</div>
+		<div class="row">
+			<div class="col-centered text-center"><p>in 2022 to be the equivalent of a six-figure earner in <span id="inYearBorn" name="year"></span></p></div>
+		</div>
+		<div class="row">
+			<div class="col-centered text-center"><p>Likewise, if you currently make $100,000, it's the equivalent of </p></div>
+		</div>
+		<div class="row">
+			<div class="col-centered text-center"><h1 id="pastValue"></h1></div>
+		</div>
+		<div class="row">
+			<div class="col-centered text-center"><p> in <span id="yearBornPastValue" name="year"></span></p></div>
+		</div>
+		<div class="row">	
+			<div class="col-centered text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span name="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
+		</div>
+	</div>
+	<footer class="fixed-bottom"><small>Data is pulled from the Bureau of Labor Statistics and calculated using the Consumer Price Index (CPI) CWSR0000SA0 series.</small></footer>
+</body>
+<script type="text/javascript">
+	const may2022cpi = 291.474;
+
+	const yearBorn = document.getElementById("yearBorn");
+
+	const formatter = new Intl.NumberFormat(
+		'en-US', 
+		{style: 'currency', currency: 'USD'}
+	).format;
+
+	function updateById(_id, value) {
+		return document.getElementById(_id).innerHTML = value
+	}
+
+	function updateByName(name, value) {
+		const fields = document.getElementsByName(name);
+		for (let i = 0; i < fields.length; i++) {
+			fields[i].innerHTML = value
+		}
+	}
+
+	const cpiTable = {"1947": 21.6, "1948": 23.81, "1949": 24.15, "1950": 23.64, "1951": 25.52, "1952": 26.6, "1953": 26.79, "1954": 27.09, "1955": 26.92, "1956": 26.98, "1957": 27.82, "1958": 28.8, "1959": 29.17, "1960": 29.54, "1961": 30.01, "1962": 30.21, "1963": 30.61, "1964": 31.12, "1965": 31.45, "1966": 32.06, "1967": 33.1, "1968": 34.3, "1969": 35.9, "1970": 38.1, "1971": 40.1, "1972": 41.5, "1973": 43.0, "1974": 47.0, "1975": 52.6, "1976": 56.2, "1977": 59.1, "1978": 63.0, "1979": 68.8, "1980": 78.5, "1981": 87.7, "1982": 94.8, "1983": 98.2, "1984": 101.8, "1985": 105.2, "1986": 109.1, "1987": 110.2, "1988": 114.7, "1989": 119.9, "1990": 126.1, "1991": 132.9, "1992": 136.2, "1993": 140.5, "1994": 143.8, "1995": 148.0, "1996": 152.0, "1997": 156.6, "1998": 158.8, "1999": 161.4, "2000": 166.0, "2001": 172.2, "2002": 173.7, "2003": 178.6, "2004": 181.9, "2005": 187.2, "2006": 195.1, "2007": 198.613, "2008": 207.931, "2009": 206.496, "2010": 213.353, "2011": 217.468, "2012": 224.494, "2013": 228.112, "2014": 231.649, "2015": 229.498, "2016": 231.862, "2017": 237.715, "2018": 242.911, "2019": 245.981, "2020": 252.146, "2021": 255.995, "2022": 277.222}
+	
+	function inflate() {
+		const year = yearBorn.value;
+		const cpi = cpiTable[year];
+		updateById("value", formatter(100_000 * (may2022cpi / cpi)));
+		updateById("pastValue", formatter(100_000 * (cpi / may2022cpi)));
+		updateById("millionaire", formatter(1_000_000 * (may2022cpi / cpi)));
+		updateByName("year", year);	
+	}
+
+	yearBorn.addEventListener("change", inflate);
+
+</script>
+</html>
