@@ -21,6 +21,11 @@
 		scroll-snap-type: y mandatory;
 	}
 
+	.navbar {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
 	footer {
 		font-size: 10px;
 	}
@@ -33,7 +38,16 @@
 
 </style>
 <body onload="inflate()">
-	<!-- TODO Add header with links for each section (once sections are actually implemented) -->
+	<!-- TODO Make these links actually work. Consider a desktop-version as well, as this doesn't look great on the desktop. -->
+	<nav class="navbar fixed-top navbar-light bg-light sticky-top">
+	  <a class="nav-item nav-link" href="#">🏦</a>
+      <a class="nav-item nav-link" href="#">🚗</a>
+      <a class="nav-item nav-link" href="#">🏢</a>
+      <a class="nav-item nav-link" href="#">🏠</a>
+      <a class="nav-item nav-link" href="#">🏫</a>
+      <a class="nav-item nav-link" href="#">👰🏻‍♀️</a>
+	  </div>
+	</nav>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-centered text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
@@ -77,6 +91,14 @@
 	<div class="container-fluid">
 		<!-- Home prices -->
 		<!-- TODO average cost to buy a single family home by year, show inflation adjusted amount as well as raw amount -->
+	</div>
+	<div class="container-fluid">
+		<!-- Tuition costs -->
+		<!-- TODO average tuition cost for a four-year diploma, show public and private schools (maybe), show raw and inflation adjusted -->
+	</div>
+	<div class="container-fluid">
+		<!-- Wedding prices -->
+		<!-- TODO average cost of a wedding by year, show raw and inflation adjusted -->
 	</div>
 	<footer class="text-center fixed-bottom" style="background-color: #f1f1f1;">
 	  <!-- Grid container -->
