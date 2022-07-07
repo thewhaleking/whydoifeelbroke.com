@@ -11,7 +11,14 @@
 <style type="text/css">
 	body {
 	  background-color: #1abc9c;
-	  color: #f1f1f1;;
+	  color: #f1f1f1;
+	  overflow: hidden; 
+	}
+
+	.container-fluid {
+		overflow-y: scroll;
+		scroll-behavior: smooth;
+		scroll-snap-type: y mandatory;
 	}
 
 	footer {
@@ -26,6 +33,7 @@
 
 </style>
 <body onload="inflate()">
+	<!-- TODO Add header with links for each section (once sections are actually implemented) -->
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-centered text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
@@ -54,6 +62,21 @@
 		<div class="row">	
 			<div class="col-centered text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span name="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
 		</div>
+	</div>
+	<div class="container-fluid">
+		<!-- Car prices -->
+		<!-- 
+			TODO use the best-selling car for each year from 1947-present and its respective sale price, 
+			give the user the Make/Model/Price of said car, and how that price translates to 2022 dollars
+		-->
+	</div>
+	<div class="container-fluid">
+		<!-- Rent prices -->
+		<!-- TODO average rent prices by year, maybe eventually break down by top cities, show inflation adjusted amount as well as raw amount -->
+	</div>
+	<div class="container-fluid">
+		<!-- Home prices -->
+		<!-- TODO average cost to buy a single family home by year, show inflation adjusted amount as well as raw amount -->
 	</div>
 	<footer class="text-center fixed-bottom" style="background-color: #f1f1f1;">
 	  <!-- Grid container -->

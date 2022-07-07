@@ -13,7 +13,7 @@ def main():
 	)
 	template = env.get_template(TEMPLATE_FILE)
 	rendered = template.render()
-	minified = htmlmin.minify(rendered)
+	minified = htmlmin.minify(rendered, remove_comments=True)
 	with open("rendered.html", "w+") as f:
 		f.write(minified)
 
