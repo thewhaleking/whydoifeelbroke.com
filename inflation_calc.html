@@ -9,16 +9,30 @@
 	<title>WhyDoIFeelBroke.com</title>
 </head>
 <style type="text/css">
+	html {
+		height: 100%;
+	}
+
 	body {
 	  background-color: #1abc9c;
 	  color: #f1f1f1;
-	  overflow: hidden; 
+	  height: 100%;
+	}
+
+	.scrollport {
+	  overflow-y: scroll;
+	  scroll-snap-type: y mandatory;
+	  
+	}
+
+	.scrollport h2 {
+	  scroll-snap-align: start;
+	  padding-top: 10px;
 	}
 
 	.container-fluid {
-		overflow-y: scroll;
-		scroll-behavior: smooth;
-		scroll-snap-type: y mandatory;
+		min-height: 100%;
+		position: relative;
 	}
 
 	.navbar {
@@ -38,88 +52,114 @@
 
 </style>
 <body onload="inflate()">
-	<!-- TODO Make these links actually work. Consider a desktop-version as well, as this doesn't look great on the desktop. -->
-	<nav class="navbar fixed-top navbar-light bg-light sticky-top">
-	  <a class="nav-item nav-link" href="#">🏦</a>
-      <a class="nav-item nav-link" href="#">🚗</a>
-      <a class="nav-item nav-link" href="#">🏢</a>
-      <a class="nav-item nav-link" href="#">🏠</a>
-      <a class="nav-item nav-link" href="#">🏫</a>
-      <a class="nav-item nav-link" href="#">👰🏻‍♀️</a>
-	  </div>
-	</nav>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-centered text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
+	<div class="scrollport">
+		<!-- TODO Make these links actually work. Consider a desktop-version as well, as this doesn't look great on the desktop. -->
+		<nav class="navbar fixed-top navbar-light bg-light sticky-top">
+		  <a class="nav-item nav-link" href="#top">🏦</a>
+	      <a class="nav-item nav-link" href="#carSection">🚗</a>
+	      <a class="nav-item nav-link" href="#rentSection">🏢</a>
+	      <a class="nav-item nav-link" href="#homeSection">🏠</a>
+	      <a class="nav-item nav-link" href="#tuitionSection">🏫</a>
+	      <a class="nav-item nav-link" href="#weddingSection">👰🏻‍♀️</a>
+		  </div>
+		</nav>
+		<div class="container-fluid">
+			<h2>Income</h2>
+			<div class="row">
+				<div class="col-centered text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
+			</div>
+			<div class="row">
+				<div class="col"><input class="form-control" style="width: 33%;" type="number" name="yearBorn" id="yearBorn" value="1992" min="1947" max="2021"/></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center">You would need to make </div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><h1 id="value"></h1></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><p>in 2022 to be the equivalent of a six-figure earner in <span id="inYearBorn" name="year"></span></p></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><p>Likewise, if you currently make $100,000, it's the equivalent of </p></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><h1 id="pastValue"></h1></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><p> in <span id="yearBornPastValue" name="year"></span></p></div>
+			</div>
+			<div class="row">	
+				<div class="col-centered text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span name="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
+			</div>
 		</div>
-		<div class="row">
-			<div class="col"><input class="form-control" style="width: 33%;" type="number" name="yearBorn" id="yearBorn" value="1992" min="1947" max="2021"/></div>
+		<div class="container-fluid" id="carSection">
+			<!-- Car prices -->
+			<h2>Automobiles</h2>
+			<div class="row">
+				<div class="col-centered text-center">What did a typical car cost in <span name="year"></span>?</div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><p>You would've purchased something like a</p></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><h1 id="carName"></h1></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><p>for roughly</p></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><h1 id="carValueThen"></h1></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><p>which is the equivalent of </p></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><h1 id="carValueNow"></h1></div>
+			</div>
+			<div class="row">
+				<div class="col-centered text-center"><p>in 2022 dollars.</p></div>
+			</div>
 		</div>
-		<div class="row">
-			<div class="col-centered text-center">You would need to make </div>
-		</div>
-		<div class="row">
-			<div class="col-centered text-center"><h1 id="value"></h1></div>
-		</div>
-		<div class="row">
-			<div class="col-centered text-center"><p>in 2022 to be the equivalent of a six-figure earner in <span id="inYearBorn" name="year"></span></p></div>
-		</div>
-		<div class="row">
-			<div class="col-centered text-center"><p>Likewise, if you currently make $100,000, it's the equivalent of </p></div>
-		</div>
-		<div class="row">
-			<div class="col-centered text-center"><h1 id="pastValue"></h1></div>
-		</div>
-		<div class="row">
-			<div class="col-centered text-center"><p> in <span id="yearBornPastValue" name="year"></span></p></div>
-		</div>
-		<div class="row">	
-			<div class="col-centered text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span name="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
-		</div>
-	</div>
-	<div class="container-fluid">
-		<!-- Car prices -->
 		<!-- 
-			TODO use the best-selling car for each year from 1947-present and its respective sale price, 
-			give the user the Make/Model/Price of said car, and how that price translates to 2022 dollars
+		<div class="container-fluid" id="rentSection">
+			Rent prices 
+			TODO average rent prices by year, maybe eventually break down by top cities, show inflation adjusted amount as well as raw amount
+		</div>
+		<div class="container-fluid" id="homeSection">
+			Home prices
+			TODO average cost to buy a single family home by year, show inflation adjusted amount as well as raw amount
+		</div>
+		<div class="container-fluid" id="tuitionSection">
+			Tuition costs
+			TODO average tuition cost for a four-year diploma, show public and private schools (maybe), show raw and inflation adjusted
+		</div>
+		<div class="container-fluid" id="weddingSection">
+			Wedding prices
+			TODO average cost of a wedding by year, show raw and inflation adjusted
+		</div>
 		-->
+		<footer class="text-center" style="background-color: #f1f1f1;">
+		  <!-- Grid container -->
+		  <div class="container pt-1">
+		    <!-- Section: Social media -->
+		    <section class="mb-1">
+		      <!-- Github -->
+		      <a
+		        class="btn btn-link btn-floating btn-lg text-dark m-1"
+		        href="https://github.com/benjamindhimes/whydoifeelbroke.com"
+		        role="button"
+		        ><i class="fab fa-github"></i
+		      ></a>
+		    </section>
+		  </div>
+		  <div class="text-center text-dark p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+		    Data is pulled from the
+		    <a class="text-dark" href="https://download.bls.gov/pub/time.series/cu/">Bureau of Labor Statistics</a>
+		    and calculated using the Consumer Price Index (CPI) CWSR0000SA0 series.
+		  </div>
+		</footer>
 	</div>
-	<div class="container-fluid">
-		<!-- Rent prices -->
-		<!-- TODO average rent prices by year, maybe eventually break down by top cities, show inflation adjusted amount as well as raw amount -->
-	</div>
-	<div class="container-fluid">
-		<!-- Home prices -->
-		<!-- TODO average cost to buy a single family home by year, show inflation adjusted amount as well as raw amount -->
-	</div>
-	<div class="container-fluid">
-		<!-- Tuition costs -->
-		<!-- TODO average tuition cost for a four-year diploma, show public and private schools (maybe), show raw and inflation adjusted -->
-	</div>
-	<div class="container-fluid">
-		<!-- Wedding prices -->
-		<!-- TODO average cost of a wedding by year, show raw and inflation adjusted -->
-	</div>
-	<footer class="text-center fixed-bottom" style="background-color: #f1f1f1;">
-	  <!-- Grid container -->
-	  <div class="container pt-1">
-	    <!-- Section: Social media -->
-	    <section class="mb-1">
-	      <!-- Github -->
-	      <a
-	        class="btn btn-link btn-floating btn-lg text-dark m-1"
-	        href="https://github.com/benjamindhimes/whydoifeelbroke.com"
-	        role="button"
-	        ><i class="fab fa-github"></i
-	      ></a>
-	    </section>
-	  </div>
-	  <div class="text-center text-dark p-2" style="background-color: rgba(0, 0, 0, 0.2);">
-	    Data is pulled from the
-	    <a class="text-dark" href="https://download.bls.gov/pub/time.series/cu/">Bureau of Labor Statistics</a>
-	    and calculated using the Consumer Price Index (CPI) CWSR0000SA0 series.
-	  </div>
-	</footer>
 </body>
 <script>
 	{% include 'inflation_calc.js' %}
