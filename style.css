@@ -1,0 +1,60 @@
+	html {
+		height: 100%;
+	}
+
+	body {
+	  /*background-color: #1abc9c;*/
+	  color: #f1f1f1;
+
+  /*background: #34e89e;  */
+  background: linear-gradient(to right, #1abc9c, lightseagreen); 
+	}
+
+	/* TODO Clean up the full-screen display of each section and the footer. It's functioning, but not great. */
+
+	.scrollport {
+	  /*padding: 20px;*/
+	  height: 900px;
+	  overflow-y: scroll;
+	  scroll-snap-type: y mandatory;
+	}
+
+	.container-fluid {
+	  min-height: 100%;
+	  font-family: sans-serif;
+	  display: block;
+	  padding-top: 30px;
+	  /*vertical-align: center;*/
+	  /*align-items: center;*/
+	}
+
+	.scrollport  .container-fluid h2{
+	  padding-top: 10px;
+	  scroll-snap-align: start;
+	}
+
+	.navbar {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.nav-size {
+		height: 20px;
+		display: block;
+	}
+
+	footer {
+		font-size: 10px;
+		scroll-snap-align: stop;
+		height: 100px;
+	}
+
+	input {
+         display: block;
+         margin : 0 auto;
+         text-align: center;
+    }
+
+    h2 {
+    	text-align: center;
+    }
