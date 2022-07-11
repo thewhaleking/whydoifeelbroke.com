@@ -3,11 +3,8 @@
 	}
 
 	body {
-	  /*background-color: #1abc9c;*/
-	  color: #f1f1f1;
-
-  /*background: #34e89e;  */
-  background: linear-gradient(to right, #1abc9c, lightseagreen); 
+		color: #f1f1f1;
+  		background: linear-gradient(to right, #1abc9c, lightseagreen); 
 	}
 
 	/* TODO Clean up the full-screen display of each section and the footer. It's functioning, but not great. */
@@ -16,7 +13,7 @@
 	  /*padding: 20px;*/
 	  height: 900px;
 	  overflow-y: scroll;
-	  scroll-snap-type: y mandatory;
+	  scroll-snap-type: y mandatory; /* TODO consider making this proximity */ 
 	}
 
 	.container-fluid {
@@ -24,8 +21,6 @@
 	  font-family: sans-serif;
 	  display: block;
 	  padding-top: 30px;
-	  /*vertical-align: center;*/
-	  /*align-items: center;*/
 	}
 
 	.scrollport  .container-fluid h2{
@@ -46,7 +41,8 @@
 	footer {
 		font-size: 10px;
 		scroll-snap-align: stop;
-		height: 100px;
+		/* TODO fix this */
+		height: 800px;
 	}
 
 	input {
