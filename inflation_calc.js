@@ -1,5 +1,5 @@
 // TODO change this to be more dynamic
-const may2022cpi = 291.474;
+const mostRecentCPI = 291.474;
 const johnOliver = "2022";
 
 
@@ -626,8 +626,8 @@ function inflate() {
 	const weddingPrice = weddingTable[year][1];
 
 	// quick maths
-	const nowToThen = cpi / may2022cpi;
-	const thenToNow = may2022cpi / cpi;
+	const nowToThen = cpi / mostRecentCPI;
+	const thenToNow = mostRecentCPI / cpi;
 
 	// updates
 	updateByName("year", year);	
