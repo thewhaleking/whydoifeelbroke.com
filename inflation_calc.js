@@ -510,8 +510,8 @@ const tuitionTable = {
 	"2019": [9_349, 32_769],
 	// source: https://www.usnews.com/education/best-colleges/paying-for-college/articles/paying-for-college-infographic
 	"2020": [10_388, 38_185],
-	"2021": [10,388, 38_185],
-	"2022": [10,388, 38_185]
+	"2021": [10_388, 38_185],
+	"2022": [10_388, 38_185]
 }
 
 const weddingTable = {
