@@ -3,20 +3,24 @@ import pathlib
 
 import htmlmin
 from jinja2 import Environment, FileSystemLoader
+import jsmin
 
 DIR = pathlib.Path(__file__).parent.resolve()
 TEMPLATE_FILE = "inflation_calc.html"
 
+
 def main():
-	env = Environment(
-	    loader=FileSystemLoader(searchpath=DIR)
-	)
-	template = env.get_template(TEMPLATE_FILE)
-	rendered = template.render()
-	minified = htmlmin.minify(rendered, remove_comments=True)
-	with open(pathlib.Path(DIR, "rendered.html"), "w+") as f:
-		f.write(minified)
+    env = Environment(
+        loader=FileSystemLoader(searchpath=DIR)
+    )
+    template = env.get_template(TEMPLATE_FILE)
+    with open(pathlib.Path(DIR, "inflation_calc.js")) as js_f:
+        inflation_js = jsmin.jsmin(js_f.read())
+    rendered = template.render(inflation_js=inflation_js)
+    minified = htmlmin.minify(rendered, remove_comments=True)
+    with open(pathlib.Path(DIR, "rendered.html"), "w+") as f:
+        f.write(minified)
 
 
 if __name__ == "__main__":
-	main()
+    main()
