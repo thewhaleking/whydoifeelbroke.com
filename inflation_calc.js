@@ -516,7 +516,7 @@ const tuitionTable = {
 	"2022": [10_388, 38_185]
 }
 
-const weddingTable = {
+/* const weddingTable = {
 	// year: [ringPrice, fullWeddingPrice]
 	"1947": [0.0, 0.0],
 	"1948": [0.0, 0.0],
@@ -545,7 +545,7 @@ const weddingTable = {
 	"1971": [0.0, 0.0],
 	"1972": [0.0, 0.0],
 	"1973": [0.0, 0.0],
-	"1974": [0.0, 0.0],
+	"1974": [0.0, 2_000], // source: Buzzfeed, Meg Keene
 	"1975": [0.0, 0.0],
 	"1976": [0.0, 0.0],
 	"1977": [0.0, 0.0],
@@ -561,7 +561,7 @@ const weddingTable = {
 	"1987": [0.0, 0.0],
 	"1988": [0.0, 0.0],
 	"1989": [0.0, 0.0],
-	"1990": [0.0, 0.0],
+	"1990": [0.0, 15_208], // source: Penn State, Beth Montemurro
 	"1991": [0.0, 0.0],
 	"1992": [0.0, 0.0],
 	"1993": [0.0, 0.0],
@@ -571,13 +571,15 @@ const weddingTable = {
 	"1997": [0.0, 0.0],
 	"1998": [0.0, 0.0],
 	"1999": [0.0, 0.0],
-	"2000": [0.0, 0.0],
-	"2001": [0.0, 0.0],
-	"2002": [0.0, 0.0],
-	"2003": [0.0, 0.0],
-	"2004": [0.0, 0.0],
-	"2005": [0.0, 0.0],
-	"2006": [0.0, 0.0],
+	// Source: The Wedding Report -->
+	"2000": [0.0, 20_000],
+	"2001": [0.0, 21_000],
+	"2002": [0.0, 22_400],
+	"2003": [0.0, 23_300],
+	"2004": [0.0, 24_400],
+	"2005": [0.0, 25_800],
+	"2006": [0.0, 26_400],
+	// <-- Source: The Wedding Report
 	"2007": [0.0, 0.0],
 	"2008": [0.0, 0.0],
 	"2009": [0.0, 0.0],
@@ -594,7 +596,7 @@ const weddingTable = {
 	"2020": [0.0, 0.0],
 	"2021": [0.0, 0.0],
 	"2022": [0.0, 0.0]
-}
+} */
 
 const yearBorn = document.getElementById("yearBorn");
 
@@ -624,8 +626,8 @@ function inflate() {
 	const home = houseTable[year];
 	const publicTuition = tuitionTable[year][0];
 	const privateTuition = tuitionTable[year][1];
-	const ringPrice = weddingTable[year][0];
-	const weddingPrice = weddingTable[year][1];
+	// const ringPrice = weddingTable[year][0];
+	// const weddingPrice = weddingTable[year][1];
 
 	// quick maths
 	const nowToThen = cpi / mostRecentCPI;
@@ -659,12 +661,13 @@ function inflate() {
 	updateById("actualPublicTuition", formatter(tuitionTable[johnOliver][0]));
 	updateById("actualPrivateTuition", formatter(tuitionTable[johnOliver][1]));
 	// wedding
-	updateById("ringPriceThen", formatter(ringPrice));
-	updateById("ringPriceNow", formatter(ringPrice * thenToNow));
-	updateById("weddingCostThen", formatter(weddingPrice));
-	updateById("weddingCostNow", formatter(weddingPrice * thenToNow));
-	updateById("actualRingPrice", formatter(weddingTable[johnOliver][0]));
-	updateById("actualWeddingPrice", formatter(weddingTable[johnOliver][1]));
+	// TODO Gather this data.
+	// updateById("ringPriceThen", formatter(ringPrice));
+	// updateById("ringPriceNow", formatter(ringPrice * thenToNow));
+	// updateById("weddingCostThen", formatter(weddingPrice));
+	// updateById("weddingCostNow", formatter(weddingPrice * thenToNow));
+	// updateById("actualRingPrice", formatter(weddingTable[johnOliver][0]));
+	// updateById("actualWeddingPrice", formatter(weddingTable[johnOliver][1]));
 }
 
 yearBorn.addEventListener("change", inflate);
