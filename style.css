@@ -23,9 +23,13 @@
 	  padding-top: 30px;
 	}
 
-	.scrollport  .container-fluid h2{
+	.scrollport  .container-fluid{
 	  padding-top: 10px;
 	  scroll-snap-align: start;
+	}
+
+	.sticky-center {
+		scroll-snap-align: none;
 	}
 
 	.navbar {
@@ -38,11 +42,14 @@
 		display: block;
 	}
 
+	.snap-end {
+		scroll-snap-align: stop;
+	}
+
 	footer {
 		font-size: 10px;
-		scroll-snap-align: stop;
 		/* TODO fix this */
-		height: 800px;
+		height: 100px;
 	}
 
 	input {
