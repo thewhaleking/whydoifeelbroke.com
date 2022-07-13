@@ -654,20 +654,25 @@ function inflate() {
 	updateById("homePriceNow", formatter(home * thenToNow));
 	updateById("actualHomeNow", formatter(houseTable[johnOliver]));
 	// tuition
-	updateById("publicTuitionThen", formatter(publicTuition));
-	updateById("publicTuitionNow", formatter(publicTuition * thenToNow));
-	updateById("privateTuitionThen", formatter(privateTuition));
-	updateById("privateTuitionNow", formatter(privateTuition * thenToNow));
-	updateById("actualPublicTuition", formatter(tuitionTable[johnOliver][0]));
-	updateById("actualPrivateTuition", formatter(tuitionTable[johnOliver][1]));
+	updateById("publicTuitionThen", formatter(4 * publicTuition));
+	updateById("publicTuitionNow", formatter(4 * publicTuition * thenToNow));
+	updateById("privateTuitionThen", formatter(4 * privateTuition));
+	updateById("privateTuitionNow", formatter(4 * privateTuition * thenToNow));
+	updateById("actualPublicTuition", formatter(4 * tuitionTable[johnOliver][0]));
+	updateById("actualPrivateTuition", formatter(4 * tuitionTable[johnOliver][1]));
 	// wedding
 	// TODO Gather this data.
-	// updateById("ringPriceThen", formatter(ringPrice));
-	// updateById("ringPriceNow", formatter(ringPrice * thenToNow));
-	// updateById("weddingCostThen", formatter(weddingPrice));
-	// updateById("weddingCostNow", formatter(weddingPrice * thenToNow));
-	// updateById("actualRingPrice", formatter(weddingTable[johnOliver][0]));
-	// updateById("actualWeddingPrice", formatter(weddingTable[johnOliver][1]));
+	/* 
+	updateById("ringPriceThen", formatter(ringPrice));
+	updateById("ringPriceNow", formatter(ringPrice * thenToNow));
+	updateById("weddingCostThen", formatter(weddingPrice));
+	updateById("weddingCostNow", formatter(weddingPrice * thenToNow));
+	updateById("actualRingPrice", formatter(weddingTable[johnOliver][0]));
+	updateById("actualWeddingPrice", formatter(weddingTable[johnOliver][1]));
+	*/
+
+	// starting point
+	document.getElementById("incomeSection").scrollIntoView({behavior: 'smooth'});
 }
 
 yearBorn.addEventListener("change", inflate);
