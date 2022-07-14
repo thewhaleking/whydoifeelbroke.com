@@ -628,6 +628,17 @@ function inflate() {
 		const home = houseTable[year];
 		const publicTuition = tuitionTable[year][0];
 		const privateTuition = tuitionTable[year][1];
+		let tuitionDiscalimer = "";
+		let publicTuitionThen = "";
+		let publicTuitionNow = "";
+		let privateTuitionThen = "";
+		let privateTuitionNow = "";
+		let actualPublicTuition = "";
+		let actualPrivateTuition = "";
+		let houseDisclaimer = "";
+		let homePriceThen = "";
+		let homePriceNow = "";
+		let actualHomeNow = "";
 		// const ringPrice = weddingTable[year][0];
 		// const weddingPrice = weddingTable[year][1];
 
@@ -651,17 +662,40 @@ function inflate() {
 		updateById("rentPriceThen", formatter(rent));
 		updateById("rentPriceNow", formatter(rent * thenToNow));
 		updateById("actualRentNow", formatter(rentTable[johnOliver]));
+		if (year < 1963) {
+			// Update disclaimers
+			tuitionDiscalimer = "Tuition data are only available from 1963 onward.";
+			houseDisclaimer = "Home price data are only available from 1963 onward.";
+			document.getElementById("homeTable").style.display = "none";
+			document.getElementById("tuitionTable").style.display = "none";
+		} else {
+			// tuition
+			publicTuitionThen = formatter(4 * publicTuition);
+			publicTuitionNow = formatter(4 * publicTuition * thenToNow);
+			privateTuitionThen = formatter(4 * privateTuition);
+			privateTuitionNow = formatter(4 * privateTuition * thenToNow);
+			actualPublicTuition = formatter(4 * tuitionTable[johnOliver][0]);
+			actualPrivateTuition = formatter(4 * tuitionTable[johnOliver][1]);
+			// home
+			homePriceThen = formatter(home);
+			homePriceNow = formatter(home * thenToNow);
+			actualHomeNow = formatter(houseTable[johnOliver]);
+			document.getElementById("homeTable").style.display = "block";
+			document.getElementById("tuitionTable").style.display = "block";
+		}
 		// home
-		updateById("homePriceThen", formatter(home));
-		updateById("homePriceNow", formatter(home * thenToNow));
-		updateById("actualHomeNow", formatter(houseTable[johnOliver]));
+		updateById("houseDisclaimer", houseDisclaimer);
+		updateById("homePriceThen", homePriceThen);
+		updateById("homePriceNow", homePriceNow);
+		updateById("actualHomeNow", actualHomeNow);
 		// tuition
-		updateById("publicTuitionThen", formatter(4 * publicTuition));
-		updateById("publicTuitionNow", formatter(4 * publicTuition * thenToNow));
-		updateById("privateTuitionThen", formatter(4 * privateTuition));
-		updateById("privateTuitionNow", formatter(4 * privateTuition * thenToNow));
-		updateById("actualPublicTuition", formatter(4 * tuitionTable[johnOliver][0]));
-		updateById("actualPrivateTuition", formatter(4 * tuitionTable[johnOliver][1]));
+		updateById("tuitionDisclaimer", tuitionDiscalimer);
+		updateById("publicTuitionThen", publicTuitionThen);
+		updateById("publicTuitionNow", publicTuitionNow);
+		updateById("privateTuitionThen", privateTuitionThen);
+		updateById("privateTuitionNow", privateTuitionNow);
+		updateById("actualPublicTuition", actualPublicTuition);
+		updateById("actualPrivateTuition", actualPrivateTuition);
 		// wedding
 		// TODO Gather this data.
 		/* 

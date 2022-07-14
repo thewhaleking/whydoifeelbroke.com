@@ -119,26 +119,29 @@
 			<!-- Home prices
 			TODO average cost to buy a single family home by year, show inflation adjusted amount as well as raw amount -->
 			<h2>Home Purchases</h2>
-			<div class="row">
-				<div class="col-centered text-center">What did a house cost to buy in <span name="year"></span>?</div>
+			<span id="houseDisclaimer"></span>
+			<div id="homeTable">
+				<div class="row">
+					<div class="col-centered text-center">What did a house cost to buy in <span name="year"></span>?</div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><p>The average home price in the US was</p></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><h1 id="homePriceThen"></h1></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center sticky-center"><p>which is the equivalent of </p></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><h1 id="homePriceNow"></h1></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><p>in 2022 dollars.</p></div>
+				</div>
+				<div class="row">	
+					<div class="col-centered text-center"><p>The actual average cost of a home now is <span style="font-weight: bold;" id="actualHomeNow"></span>.</p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>The average home price in the US was</p></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="homePriceThen"></h1></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center sticky-center"><p>which is the equivalent of </p></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="homePriceNow"></h1></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>in 2022 dollars.</p></div>
-			</div>
-			<div class="row">	
-				<div class="col-centered text-center"><p>The actual average cost of a home now is <span style="font-weight: bold;" id="actualHomeNow"></span>.</p></div>
 			</div>
 		</div>
 		<div class="container-fluid" id="tuitionSection">
@@ -146,29 +149,32 @@
 			<!--Tuition costs
 			TODO average tuition cost for a four-year diploma, show public and private schools (maybe), show raw and inflation adjusted-->
 			<h2>Tuition</h2>
-			<div class="row">
-				<div class="col-centered text-center">What did it cost to go to college in  <span name="year"></span>?</div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>A four-year degree at a public university was</p></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="publicTuitionThen"></h1></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>which is the equivalent of </p></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="publicTuitionNow"></h1></div>
-			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>in 2022 dollars.</p></div>
-			</div>
-			<div class="row sticky-center">	
-				<div class="col-centered text-center"><p>What about a a private university? If you wanted to attend a private university for a four-year degree in <span name="year"></span>, you would have spent ~<span style="font-weight: bold;" id="privateTuitionThen"></span>, which is the equivalent of <span style="font-weight: bold;" id="privateTuitionNow"> in 2022 dollars.</span></p></div>
-			</div>
-			<div class="row">	
-				<div class="col-centered text-center"><p>The actual cost of a public university four-year degree now is <span style="font-weight: bold;" id="actualPublicTuition"></span>, and a private university is <span style="font-weight: bold;" id="actualPrivateTuition"></span>.</p></div>
+			<span id="tuitionDisclaimer"></span>
+			<div id="tuitionTable">
+				<div class="row">
+					<div class="col-centered text-center">What did it cost to go to college in  <span name="year"></span>?</div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><p>A four-year degree at a public university was</p></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><h1 id="publicTuitionThen"></h1></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><p>which is the equivalent of </p></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><h1 id="publicTuitionNow"></h1></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><p>in 2022 dollars.</p></div>
+				</div>
+				<div class="row sticky-center">	
+					<div class="col-centered text-center"><p>What about a a private university? If you wanted to attend a private university for a four-year degree in <span name="year"></span>, you would have spent ~<span style="font-weight: bold;" id="privateTuitionThen"></span>, which is the equivalent of <span style="font-weight: bold;" id="privateTuitionNow"> in 2022 dollars.</span></p></div>
+				</div>
+				<div class="row">	
+					<div class="col-centered text-center"><p>The actual cost of a public university four-year degree now is <span style="font-weight: bold;" id="actualPublicTuition"></span>, and a private university is <span style="font-weight: bold;" id="actualPrivateTuition"></span>.</p></div>
+				</div>
 			</div>
 		</div>
 	<div class="container-fluid">
