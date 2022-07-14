@@ -619,60 +619,71 @@ function updateByName(name, value) {
 function inflate() {
 	// selector declarations
 	const year = yearBorn.value;
-	const cpi = cpiTable[year];
-	const carName = carTable[year][0];
-	const carVal = carTable[year][1];
-	const rent = rentTable[year];
-	const home = houseTable[year];
-	const publicTuition = tuitionTable[year][0];
-	const privateTuition = tuitionTable[year][1];
-	// const ringPrice = weddingTable[year][0];
-	// const weddingPrice = weddingTable[year][1];
 
-	// quick maths
-	const nowToThen = cpi / mostRecentCPI;
-	const thenToNow = mostRecentCPI / cpi;
+	try {
+		const cpi = cpiTable[year];
+		const carName = carTable[year][0];
+		const carVal = carTable[year][1];
+		const rent = rentTable[year];
+		const home = houseTable[year];
+		const publicTuition = tuitionTable[year][0];
+		const privateTuition = tuitionTable[year][1];
+		// const ringPrice = weddingTable[year][0];
+		// const weddingPrice = weddingTable[year][1];
 
-	// updates
-	updateByName("year", year);	
-	// income
-	updateById("value", formatter(100_000 * thenToNow));
-	updateById("pastValue", formatter(100_000 * nowToThen));
-	updateById("millionaire", formatter(1_000_000 * thenToNow));
-	// car
-	updateById("carName", carName);
-	updateById("carValueThen", formatter(carVal));
-	updateById("carValueNow", formatter(carVal * thenToNow));
-	updateById("actualCarNameNow", carTable[johnOliver][0]);
-	updateById("actualCarValueNow", formatter(carTable[johnOliver][1]));
-	// rent
-	updateById("rentPriceThen", formatter(rent));
-	updateById("rentPriceNow", formatter(rent * thenToNow));
-	updateById("actualRentNow", formatter(rentTable[johnOliver]));
-	// home
-	updateById("homePriceThen", formatter(home));
-	updateById("homePriceNow", formatter(home * thenToNow));
-	updateById("actualHomeNow", formatter(houseTable[johnOliver]));
-	// tuition
-	updateById("publicTuitionThen", formatter(4 * publicTuition));
-	updateById("publicTuitionNow", formatter(4 * publicTuition * thenToNow));
-	updateById("privateTuitionThen", formatter(4 * privateTuition));
-	updateById("privateTuitionNow", formatter(4 * privateTuition * thenToNow));
-	updateById("actualPublicTuition", formatter(4 * tuitionTable[johnOliver][0]));
-	updateById("actualPrivateTuition", formatter(4 * tuitionTable[johnOliver][1]));
-	// wedding
-	// TODO Gather this data.
-	/* 
-	updateById("ringPriceThen", formatter(ringPrice));
-	updateById("ringPriceNow", formatter(ringPrice * thenToNow));
-	updateById("weddingCostThen", formatter(weddingPrice));
-	updateById("weddingCostNow", formatter(weddingPrice * thenToNow));
-	updateById("actualRingPrice", formatter(weddingTable[johnOliver][0]));
-	updateById("actualWeddingPrice", formatter(weddingTable[johnOliver][1]));
-	*/
+		// quick maths
+		const nowToThen = cpi / mostRecentCPI;
+		const thenToNow = mostRecentCPI / cpi;
 
-	// starting point
-	document.getElementById("incomeSection").scrollIntoView({behavior: 'smooth'});
+		// updates
+		updateByName("year", year);	
+		// income
+		updateById("value", formatter(100_000 * thenToNow));
+		updateById("pastValue", formatter(100_000 * nowToThen));
+		updateById("millionaire", formatter(1_000_000 * thenToNow));
+		// car
+		updateById("carName", carName);
+		updateById("carValueThen", formatter(carVal));
+		updateById("carValueNow", formatter(carVal * thenToNow));
+		updateById("actualCarNameNow", carTable[johnOliver][0]);
+		updateById("actualCarValueNow", formatter(carTable[johnOliver][1]));
+		// rent
+		updateById("rentPriceThen", formatter(rent));
+		updateById("rentPriceNow", formatter(rent * thenToNow));
+		updateById("actualRentNow", formatter(rentTable[johnOliver]));
+		// home
+		updateById("homePriceThen", formatter(home));
+		updateById("homePriceNow", formatter(home * thenToNow));
+		updateById("actualHomeNow", formatter(houseTable[johnOliver]));
+		// tuition
+		updateById("publicTuitionThen", formatter(4 * publicTuition));
+		updateById("publicTuitionNow", formatter(4 * publicTuition * thenToNow));
+		updateById("privateTuitionThen", formatter(4 * privateTuition));
+		updateById("privateTuitionNow", formatter(4 * privateTuition * thenToNow));
+		updateById("actualPublicTuition", formatter(4 * tuitionTable[johnOliver][0]));
+		updateById("actualPrivateTuition", formatter(4 * tuitionTable[johnOliver][1]));
+		// wedding
+		// TODO Gather this data.
+		/* 
+		updateById("ringPriceThen", formatter(ringPrice));
+		updateById("ringPriceNow", formatter(ringPrice * thenToNow));
+		updateById("weddingCostThen", formatter(weddingPrice));
+		updateById("weddingCostNow", formatter(weddingPrice * thenToNow));
+		updateById("actualRingPrice", formatter(weddingTable[johnOliver][0]));
+		updateById("actualWeddingPrice", formatter(weddingTable[johnOliver][1]));
+		*/
+	}
+
+	catch (TypeError) {
+		window.alert("Data is only available from 1947 on.");
+		yearBorn.value = "1992";
+		return inflate();
+	}
 }
 
 yearBorn.addEventListener("change", inflate);
+
+function initLoad() {
+	inflate();
+	document.getElementById("inYearBorn").scrollIntoView({block: "center"});
+}
