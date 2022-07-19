@@ -2,3 +2,4 @@ rendered.html
 .idea
 .venv
 venv*
+.sandbox
