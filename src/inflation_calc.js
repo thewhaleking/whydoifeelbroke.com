@@ -1,5 +1,5 @@
 // TODO change this to be more dynamic
-const mostRecentCPI = 291.474;
+const mostRecentCPI = {{ most_recent_cpi }}
 const johnOliver = "2022";
 
 
