@@ -10,7 +10,7 @@ def get_latest() -> float:
             return y[1]
 
     r = requests.get("https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems")
-    latest = max(r.text.splitlines()[1:], key=lambda x: line_key(x))
+    latest = max(r.text.splitlines()[1:], key=line_key)
     return float(latest.split('\t')[3].strip())
 
 
