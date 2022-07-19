@@ -1,4 +1,3 @@
-// TODO change this to be more dynamic
 const mostRecentCPI = {{ most_recent_cpi }}
 const johnOliver = "2022";
 
