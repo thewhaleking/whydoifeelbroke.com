@@ -15,6 +15,7 @@
 	<!-- TODO Make these links actually work. Consider a desktop-version as well, as this doesn't look great on the desktop. -->
 	<nav class="navbar navbar-light bg-light sticky-top">
 	  <a class="navbar-brand" href="#incomeSection">WhyDoIFeelBroke.com</a>
+	  <a class="navbar-brand" href="#salarySection">💸</a>
       <a class="nav-item nav-link" href="#carSection">🚗</a>
       <a class="nav-item nav-link" href="#rentSection">🏢</a>
       <a class="nav-item nav-link" href="#homeSection">🏠</a>
@@ -51,6 +52,53 @@
 			</div>
 			<div class="row">	
 				<div class="col-centered text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span name="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
+			</div>
+		</div>
+		<div class="container-fluid" id="salarySection">
+			<div style="height: 40px;"></div>
+			<!-- Salary With Inflation -->
+			<h2>Salary Change</h2>
+			<div class="row">
+				<div class="col">
+					<div class="col-centered text-center">What year did you start your current company?</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<input class="form-control" style="width: 33%;" type="number" id="yearStarted" name="yearStarted"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="col-centered text-center">What was your salary?</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<input class="form-control" style="width: 33%;" type="number" name="startingIncome" id="startingIncome"/>
+				</div>
+			</div>
+<!--			<div class="row">-->
+<!--				<div class="col">-->
+<!--					<label for="currency">Currency you earn:</label>-->
+<!--				</div>-->
+<!--				<div class="col">-->
+<!--					<select name="currency" id="currency">-->
+<!--						<option value="USD">🇺🇸 Dollar</option>-->
+<!--						<option value="ZAR">🇿🇦 Rand</option>-->
+<!--					</select>-->
+<!--				</div>-->
+<!--			</div>-->
+			<div style="display: none" id="inflatedSalarySection">
+				<div class="row">
+					<div class="col-centered text-center"><p>Your current income should be</p></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><h3 id="inflatedSalary"></h3></div>
+				</div>
+				<div class="row">
+					<div class="col-centered text-center"><p>to have the same spending power as when you started.</p></div>
+				</div>
 			</div>
 		</div>
 		<div class="container-fluid" id="carSection">

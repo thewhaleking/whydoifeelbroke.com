@@ -1,4 +1,4 @@
-const mostRecentCPI = {{ most_recent_cpi }}
+const mostRecentCPI = 307.481;
 const johnOliver = "2023";
 
 
@@ -346,6 +346,8 @@ const tuitionTable = {
 } */
 
 let yearBorn = document.getElementById("yearBorn");
+let yearStarted = document.getElementById("yearStarted");
+let startingIncome = document.getElementById("startingIncome");
 
 const formatter = new Intl.NumberFormat(
 	'en-US', 
@@ -360,6 +362,17 @@ function updateByName(name, value) {
 	const fields = document.getElementsByName(name);
 	for (let i = 0; i < fields.length; i++) {
 		fields[i].innerHTML = value
+	}
+}
+
+
+function salaryInflate() {
+	const cpi = cpiTable[yearStarted.value];
+	const thenToNow = mostRecentCPI / cpi;
+
+	updateById("inflatedSalary", formatter(startingIncome.value * thenToNow));
+	if (yearStarted.value.length > 0 && startingIncome.value.length > 0) {
+		document.getElementById("inflatedSalarySection").style.display = "block";
 	}
 }
 
@@ -465,6 +478,9 @@ function inflate() {
 }
 
 yearBorn.addEventListener("change", inflate);
+yearStarted.addEventListener("change", salaryInflate);
+startingIncome.addEventListener("keyup", salaryInflate);
+
 
 function initLoad() {
 	inflate();
