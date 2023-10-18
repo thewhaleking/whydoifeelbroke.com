@@ -1,4 +1,4 @@
-const mostRecentCPI = 307.481;
+const mostRecentCPI = {{ most_recent_cpi }}
 const johnOliver = "2023";
 
 
