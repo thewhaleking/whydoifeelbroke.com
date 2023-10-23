@@ -17,7 +17,7 @@ def main():
         loader=FileSystemLoader(searchpath=DIR.resolve())
     )
     template = env.get_template(TEMPLATE_FILE)
-    js_template = env.get_template("inflation_calc.js").render(most_recent_cpi=pull_latest_data.get_latest())
+    js_template = env.get_template("inflation_calc.js").render()
     inflation_js = jsmin.jsmin(js_template)
     rendered = template.render(inflation_js=inflation_js)
     minified = htmlmin.minify(rendered, remove_comments=True)

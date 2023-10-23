@@ -46,6 +46,7 @@
 	}
 
 	footer {
+		display: none;
 		font-size: 10px;
 	}
 	footer.text-center {

@@ -1,8 +1,9 @@
-const mostRecentCPI = {{ most_recent_cpi }}
 const johnOliver = "2023";
 
 
-const cpiTable = {"1947": 21.6, "1948": 23.81, "1949": 24.15, "1950": 23.64, "1951": 25.52, "1952": 26.6, "1953": 26.79, "1954": 27.09, "1955": 26.92, "1956": 26.98, "1957": 27.82, "1958": 28.8, "1959": 29.17, "1960": 29.54, "1961": 30.01, "1962": 30.21, "1963": 30.61, "1964": 31.12, "1965": 31.45, "1966": 32.06, "1967": 33.1, "1968": 34.3, "1969": 35.9, "1970": 38.1, "1971": 40.1, "1972": 41.5, "1973": 43.0, "1974": 47.0, "1975": 52.6, "1976": 56.2, "1977": 59.1, "1978": 63.0, "1979": 68.8, "1980": 78.5, "1981": 87.7, "1982": 94.8, "1983": 98.2, "1984": 101.8, "1985": 105.2, "1986": 109.1, "1987": 110.2, "1988": 114.7, "1989": 119.9, "1990": 126.1, "1991": 132.9, "1992": 136.2, "1993": 140.5, "1994": 143.8, "1995": 148.0, "1996": 152.0, "1997": 156.6, "1998": 158.8, "1999": 161.4, "2000": 166.0, "2001": 172.2, "2002": 173.7, "2003": 178.6, "2004": 181.9, "2005": 187.2, "2006": 195.1, "2007": 198.613, "2008": 207.931, "2009": 206.496, "2010": 213.353, "2011": 217.468, "2012": 224.494, "2013": 228.112, "2014": 231.649, "2015": 229.498, "2016": 231.862, "2017": 237.715, "2018": 242.911, "2019": 245.981, "2020": 252.146, "2021": 255.995, "2022": 277.222, "2023": 302.918}
+const usCPI = {"1947": 21.6, "1948": 23.81, "1949": 24.15, "1950": 23.64, "1951": 25.52, "1952": 26.6, "1953": 26.79, "1954": 27.09, "1955": 26.92, "1956": 26.98, "1957": 27.82, "1958": 28.8, "1959": 29.17, "1960": 29.54, "1961": 30.01, "1962": 30.21, "1963": 30.61, "1964": 31.12, "1965": 31.45, "1966": 32.06, "1967": 33.1, "1968": 34.3, "1969": 35.9, "1970": 38.1, "1971": 40.1, "1972": 41.5, "1973": 43.0, "1974": 47.0, "1975": 52.6, "1976": 56.2, "1977": 59.1, "1978": 63.0, "1979": 68.8, "1980": 78.5, "1981": 87.7, "1982": 94.8, "1983": 98.2, "1984": 101.8, "1985": 105.2, "1986": 109.1, "1987": 110.2, "1988": 114.7, "1989": 119.9, "1990": 126.1, "1991": 132.9, "1992": 136.2, "1993": 140.5, "1994": 143.8, "1995": 148.0, "1996": 152.0, "1997": 156.6, "1998": 158.8, "1999": 161.4, "2000": 166.0, "2001": 172.2, "2002": 173.7, "2003": 178.6, "2004": 181.9, "2005": 187.2, "2006": 195.1, "2007": 198.613, "2008": 207.931, "2009": 206.496, "2010": 213.353, "2011": 217.468, "2012": 224.494, "2013": 228.112, "2014": 231.649, "2015": 229.498, "2016": 231.862, "2017": 237.715, "2018": 242.911, "2019": 245.981, "2020": 252.146, "2021": 255.995, "2022": 277.222, "2023": 302.918}
+const saCPI = {"2023": 111.1, "2022": 107.2, "2021": 100.0, "2020": 94.4, "2019": 91.6, "2018": 88.1, "2017": 84.3, "2016": 80.5, "2015": 75.4, "2014": 71.7, "2013": 68.1, "2012": 64.6, "2011": 61.1, "2010": 57.6, "2009": 55.7, "2008": 52.4, "2007": 47.8, "2006": 43.9, "2005": 41.5, "2004": 40.0, "2003": 38.7, "2002": 38.5, "2001": 34.3, "2000": 32.8, "1999": 30.7, "1998": 30.0, "1997": 27.5, "1996": 26.0, "1995": 23.7, "1994": 22.2, "1993": 20.2, "1992": 18.5, "1991": 16.8, "1990": 14.5, "1989": 12.7, "1988": 11.0, "1987": 9.8, "1986": 8.5, "1985": 7.2, "1984": 6.1, "1983": 5.4, "1982": 4.8, "1981": 4.3, "1980": 3.7, "1979": 3.2, "1978": 2.8, "1977": 2.5, "1976": 2.3, "1975": 2.1, "1974": 1.8, "1973": 1.6, "1972": 1.5, "1971": 1.4, "1970": 1.3, "1969": 1.2, "1968": 1.2, "1967": 1.1, "1966": 1.1, "1965": 1.0, "1964": 1.0, "1963": 1.0, "1962": 1.0, "1961": 1.0, "1960": 1.0}
+let cpiTable = usCPI;
 
 const carTable = {
 	// year: [carName, msrp]
@@ -348,10 +349,44 @@ const tuitionTable = {
 let yearBorn = document.getElementById("yearBorn");
 let yearStarted = document.getElementById("yearStarted");
 let startingIncome = document.getElementById("startingIncome");
+let country = document.getElementById("country")
+const footer = document.querySelector('footer');
 
-const formatter = new Intl.NumberFormat(
-	'en-US', 
-	{style: 'currency', currency: 'USD'}
+
+const countries = {
+	"🇺🇸": {
+		"name": "US",
+		"flag": "🇺🇸",
+		"currency": "USD",
+		"locales": "en-US",
+		"cpi": usCPI,
+		"workingSections": [
+			"incomeSection",
+			"salarySection",
+			"carSection",
+			"rentSection",
+			"homeSection",
+			"tuitionSection"
+		],
+		"next": "🇿🇦"
+	},
+	"🇿🇦": {
+		"name": "ZA",
+		"flag": "🇿🇦",
+		"currency": "ZAR",
+		"locales": "en-ZA",
+		"cpi": saCPI,
+		"workingSections": [
+			"incomeSection",
+			"salarySection"
+		],
+		"next": "🇺🇸"
+	}
+}
+
+let formatter = new Intl.NumberFormat(
+	"en-US",
+	{style: "currency", currency: "USD"}
 ).format;
 
 function updateById(_id, value) {
@@ -366,17 +401,42 @@ function updateByName(name, value) {
 }
 
 
+function changeCountry() {
+	const currentCountry = countries[country.innerText]["flag"]
+	const nextCountry = countries[country.innerText]["next"];
+	country.innerText = nextCountry;
+	formatter = new Intl.NumberFormat(
+		countries[nextCountry]["locales"],
+		{style: "currency", currency: countries[nextCountry]["currency"]}
+	).format;
+	countries[currentCountry]["workingSections"].forEach(
+		x => document.getElementById(x).style.display = "none"
+	);
+	countries[nextCountry]["workingSections"].forEach(
+		x => document.getElementById(x).style.display = "block"
+	);
+	cpiTable = countries[nextCountry]["cpi"];
+	document.querySelector('#incomeSection').scrollIntoView();
+	salaryInflate();
+	inflate();
+}
+
+
 function salaryInflate() {
+	const mostRecentCPI = cpiTable[johnOliver];
 	const cpi = cpiTable[yearStarted.value];
 	const thenToNow = mostRecentCPI / cpi;
 
 	updateById("inflatedSalary", formatter(startingIncome.value * thenToNow));
 	if (yearStarted.value.length > 0 && startingIncome.value.length > 0) {
 		document.getElementById("inflatedSalarySection").style.display = "block";
+	} else {
+		document.getElementById("inflatedSalarySection").style.display = "none";
 	}
 }
 
 function inflate() {
+	const mostRecentCPI = cpiTable[johnOliver];
 	// selector declarations
 	let year = yearBorn.value;
 
@@ -411,6 +471,7 @@ function inflate() {
 		// income
 		updateById("value", formatter(100_000 * thenToNow));
 		updateById("pastValue", formatter(100_000 * nowToThen));
+		updateById("hundredThousand", formatter(100_000));
 		updateById("millionaire", formatter(1_000_000 * thenToNow));
 		// car
 		updateById("carName", carName);
@@ -480,9 +541,24 @@ function inflate() {
 yearBorn.addEventListener("change", inflate);
 yearStarted.addEventListener("change", salaryInflate);
 startingIncome.addEventListener("keyup", salaryInflate);
+country.addEventListener("click", changeCountry);
+window.addEventListener('scroll', function() {
+	// TODO this is trash, and is interim
+	if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+		footer.style.display = 'block';
+	} else {
+		footer.style.display = 'none';
+	}
+});
 
 
 function initLoad() {
+	const params = new URLSearchParams(window.location.search);
+	const countryParam = params.get('country');
+	// TODO hacky no-good interim solution
+	if (countryParam === "🇿🇦") {
+		changeCountry();
+	}
 	inflate();
 	document.getElementById("inYearBorn").scrollIntoView({block: "center"});
 }
