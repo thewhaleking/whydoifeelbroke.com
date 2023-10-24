@@ -9,7 +9,7 @@ const tailwindcss = require('tailwindcss');
 const cssnano = require('cssnano');
 
 const DIR = path.join(__dirname, '..');
-const TEMPLATE_FILE = "src/inflation_calc.html";
+const TEMPLATE_FILE = "src/inflation_calc.njk";
 
 async function compileTailwind(inputPath, outputPath) {
     const inputCss = readFileSync(inputPath, 'utf8');
