@@ -43,7 +43,7 @@ async function main() {
 
     const minified = htmlmin(rendered, minifiedOptions);
 
-    writeFileSync(path.join(DIR, "rendered.html"), minified);
+    writeFileSync(path.join(DIR, "dist", "rendered.html"), minified);
 }
 
 main();
