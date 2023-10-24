@@ -349,12 +349,13 @@ const tuitionTable = {
 let yearBorn = document.getElementById("yearBorn");
 let yearStarted = document.getElementById("yearStarted");
 let startingIncome = document.getElementById("startingIncome");
-let country = document.getElementById("country")
+const country = document.getElementById("countryName");
+const countryFlag = document.getElementById("countryFlag");
 const footer = document.querySelector('footer');
 
 
 const countries = {
-	"🇺🇸": {
+	"US": {
 		"name": "US",
 		"flag": "🇺🇸",
 		"currency": "USD",
@@ -368,9 +369,9 @@ const countries = {
 			"homeSection",
 			"tuitionSection"
 		],
-		"next": "🇿🇦"
+		"next": "ZA"
 	},
-	"🇿🇦": {
+	"ZA": {
 		"name": "ZA",
 		"flag": "🇿🇦",
 		"currency": "ZAR",
@@ -380,7 +381,7 @@ const countries = {
 			"incomeSection",
 			"salarySection"
 		],
-		"next": "🇺🇸"
+		"next": "US"
 	}
 }
 
@@ -402,9 +403,10 @@ function updateByClass(name, value) {
 
 
 function changeCountry() {
-	const currentCountry = countries[country.innerText]["flag"]
+	const currentCountry = countries[country.innerText]["name"]
 	const nextCountry = countries[country.innerText]["next"];
-	country.innerText = nextCountry;
+	country.innerText = countries[nextCountry]["name"];
+	countryFlag.innerText = countries[nextCountry]["flag"]
 	formatter = new Intl.NumberFormat(
 		countries[nextCountry]["locales"],
 		{style: "currency", currency: countries[nextCountry]["currency"]}
@@ -541,7 +543,7 @@ function inflate() {
 yearBorn.addEventListener("change", inflate);
 yearStarted.addEventListener("change", salaryInflate);
 startingIncome.addEventListener("keyup", salaryInflate);
-country.addEventListener("click", changeCountry);
+document.getElementById("countryClick").addEventListener("click", changeCountry);
 window.addEventListener('scroll', function() {
 	// TODO this is trash, and is interim
 	if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
