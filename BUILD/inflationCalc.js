@@ -3,7 +3,6 @@
 const path = require('path');
 const { readFileSync, writeFileSync } = require('fs');
 const htmlmin = require('html-minifier').minify;
-const jsmin = require('jsmin').jsmin;
 const nunjucks = require('nunjucks');
 const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
