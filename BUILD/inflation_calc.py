@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import pathlib
+import subprocess
 
 import htmlmin
 from jinja2 import Environment, FileSystemLoader
@@ -16,6 +17,8 @@ def main():
     env = Environment(
         loader=FileSystemLoader(searchpath=DIR.resolve())
     )
+    # compile Tailwind CSS
+    subprocess.run(["npx", "tailwindcss", "-i", "./src/input.css", "-o", "./dist/style.css", "--minify"])
     template = env.get_template(TEMPLATE_FILE)
     js_template = env.get_template("src/inflation_calc.js").render()
     inflation_js = jsmin.jsmin(js_template)
