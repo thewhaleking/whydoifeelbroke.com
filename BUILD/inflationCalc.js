@@ -27,8 +27,7 @@ async function main() {
 
     await compileTailwind('./src/input.css', './dist/style.css')
 
-    const jsTemplate = env.render("src/inflation_calc.js");
-    const rendered = env.render(TEMPLATE_FILE, { inflation_js: jsTemplate });
+    const rendered = env.render(TEMPLATE_FILE);
 
     const minifiedOptions = {
         removeComments: true,

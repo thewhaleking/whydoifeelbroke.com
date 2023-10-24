@@ -19,7 +19,7 @@
 		  </a>
 		<div class="flex items-center">
 			<a class="" id="country">
-				<span class="mr-6 text-sm  text-gray-500 dark:text-white hover:underline">🇺🇸</span>
+				<span class="mr-6 text-2xl text-gray-500 dark:text-white hover:underline">🇺🇸</span>
 			</a>
 		</div>
 		</div>
@@ -260,6 +260,6 @@
 	</div>
 </body>
 <script>
-    {{ inflation_js | safe }}
+	{% include './inflation_calc.js' %}
 </script>
 </html>
