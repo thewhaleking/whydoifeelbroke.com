@@ -1,4 +1,0 @@
-htmlmin
-jinja2
-jsmin
-requests
