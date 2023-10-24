@@ -22,13 +22,11 @@ async function compileTailwind(inputPath, outputPath) {
 }
 
 async function main() {
-    // Set up Nunjucks environment
     const env = new nunjucks.Environment(new nunjucks.FileSystemLoader(DIR, { noCache: true }));
 
     await compileTailwind('./src/input.css', './dist/style.css')
 
     const rendered = env.render(TEMPLATE_FILE);
-
     const minifiedOptions = {
         removeComments: true,
         collapseWhitespace: true,
@@ -38,7 +36,6 @@ async function main() {
         removeOptionalTags: true,
         minifyJS: true
     };
-
     const minified = htmlmin(rendered, minifiedOptions);
 
     writeFileSync(path.join(DIR, "dist", "rendered.html"), minified);
