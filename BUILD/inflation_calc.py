@@ -8,8 +8,8 @@ import jsmin
 import pull_latest_data
 
 
-DIR = pathlib.Path(pathlib.Path(__file__).parent.parent, 'src')
-TEMPLATE_FILE = "inflation_calc.html"
+DIR = pathlib.Path(pathlib.Path(__file__).parent.parent)
+TEMPLATE_FILE = "src/inflation_calc.html"
 
 
 def main():
@@ -17,11 +17,11 @@ def main():
         loader=FileSystemLoader(searchpath=DIR.resolve())
     )
     template = env.get_template(TEMPLATE_FILE)
-    js_template = env.get_template("inflation_calc.js").render()
+    js_template = env.get_template("src/inflation_calc.js").render()
     inflation_js = jsmin.jsmin(js_template)
     rendered = template.render(inflation_js=inflation_js)
     minified = htmlmin.minify(rendered, remove_comments=True)
-    with open(pathlib.Path(DIR.parent, "rendered.html"), "w+") as f:
+    with open(pathlib.Path(DIR, "rendered.html"), "w+") as f:
         f.write(minified)
 
 

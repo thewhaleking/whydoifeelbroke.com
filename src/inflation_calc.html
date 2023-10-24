@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,144 +8,167 @@
 	<title>WhyDoIFeelBroke.com</title>
 </head>
 <style>
-	{% include 'style.css' %}
+	{% include 'dist/style.css' %}
 </style>
 <body onload="initLoad()">
-	<!-- TODO Make these links actually work. Consider a desktop-version as well, as this doesn't look great on the desktop. -->
-	<nav class="navbar navbar-light bg-light sticky-top">
-	  <a class="navbar-brand" style="font-size: 15px;" href="#incomeSection">WhyDoIFeelBroke.com</a>
-	  <a class="navbar-item nav-link" id="country">🇺🇸</a>
-	  <a class="navbar-item nav-link" href="#salarySection">💸</a>
-      <a class="nav-item nav-link" href="#carSection">🚗</a>
-      <a class="nav-item nav-link" href="#rentSection">🏢</a>
-      <a class="nav-item nav-link" href="#homeSection">🏠</a>
-      <a class="nav-item nav-link" href="#tuitionSection">🎓</a>
-      <!-- <a class="nav-item nav-link" href="#weddingSection">👰🏻‍♀️</a> -->
+	<!-- TODO Consider a desktop-version, as this doesn't look great on the desktop. -->
+	<nav class="bg-white border-gray-200 dark:bg-gray-900">
+		<div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+		  <a class="flex items-center" href="#incomeSection">
+			  <span class="self-center text-2xl font-semibold whitespace-nowrap text-black dark:text-white">WhyDoIFeelBroke.com</span>
+		  </a>
+		<div class="flex items-center">
+			<a class="" id="country">
+				<span class="mr-6 text-sm  text-gray-500 dark:text-white hover:underline">🇺🇸</span>
+			</a>
+		</div>
+		</div>
+	</nav>
+	<nav class="bg-gray-50 dark:bg-gray-700">
+		<div class="mx-auto max-w-screen-xl px-4 py-2">
+			<ul class="grid grid-cols-5 list-none p-0 m-0">
+				<li class="leading-tight">
+					<a class="text-gray-900 dark:text-white hover:underline block text-center" href="#salarySection">💸</a>
+				</li>
+				<li class="leading-tight">
+					<a class="text-gray-900 dark:text-white hover:underline block text-center" href="#carSection">🚗</a>
+				</li>
+				<li class="leading-tight">
+					<a class="text-gray-900 dark:text-white hover:underline block text-center" href="#rentSection">🏢</a>
+				</li>
+				<li class="leading-tight">
+					<a class="text-gray-900 dark:text-white hover:underline block text-center" href="#homeSection">🏠</a>
+				</li>
+				<li class="leading-tight">
+					<a class="text-gray-900 dark:text-white hover:underline block text-center" href="#tuitionSection">🎓</a>
+				</li>
+			</ul>
+		</div>
 	</nav>
 	<div class="scrollport">
 		<div class="container-fluid" id="incomeSection">
 			<div style="height: 40px;"></div>
-			<h2>Income</h2>
-			<div class="row">
-				<div class="col-centered text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
+			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Income</h2>
+			<div class="flex">
+				<div class="mx-auto text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
 			</div>
-			<div class="row">
-				<div class="col"><input class="form-control" style="width: 33%;" type="number" name="yearBorn" id="yearBorn" value="1992" min="1947" max="2021"/></div>
+			<div class="flex">
+				<div class="flex-1"><input class="text-gray-500" style="width: 33%;" type="number" name="yearBorn" id="yearBorn" value="1992" min="1947" max="2021"/></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center">You would need to make </div>
+			<div class="flex">
+				<div class="mx-auto text-center">You would need to make </div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="value"></h1></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><h1 class="font-extrabold text-lg" id="value"></h1></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center sticky-center"><p>in 2023 to be the equivalent of a six-figure earner in <span id="inYearBorn" name="year"></span></p></div>
+			<div class="flex">
+				<div class="mx-auto text-center sticky-center"><p>in 2023 to be the equivalent of a six-figure earner in <span id="inYearBorn" class="year"></span></p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>Likewise, if you currently make <span id="hundredThousand"></span>; it's the equivalent of </p></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><p>Likewise, if you currently make <span id="hundredThousand"></span>; it's the equivalent of </p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="pastValue"></h1></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><h1 class="font-extrabold text-lg" id="pastValue"></h1></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p> in <span id="yearBornPastValue" name="year"></span></p></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><p> in <span id="yearBornPastValue" class="year"></span></p></div>
 			</div>
-			<div class="row">	
-				<div class="col-centered text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span name="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
+			<div class="flex">	
+				<div class="mx-auto text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span class="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
 			</div>
 		</div>
 		<div class="container-fluid" id="salarySection">
 			<div style="height: 40px;"></div>
 			<!-- Salary With Inflation -->
-			<h2>Salary Change</h2>
-			<div class="row">
-				<div class="col">
-					<div class="col-centered text-center">What year did you start your current company?</div>
+			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Salary Change</h2>
+			<div class="flex">
+				<div class="flex-1">
+					<div class="mx-auto text-center">What year did you start your current company?</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col">
-					<input class="form-control" style="width: 33%;" type="number" id="yearStarted" name="yearStarted"/>
+			<div class="flex">
+				<div class="flex-1">
+					<input class="text-gray-500" style="width: 33%;" type="number" id="yearStarted" name="yearStarted"/>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col">
-					<div class="col-centered text-center">What was your salary?</div>
+			<div class="flex">
+				<div class="flex-1">
+					<div class="mx-auto text-center">What was your salary?</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col">
-					<input class="form-control" style="width: 33%;" type="number" name="startingIncome" id="startingIncome"/>
+			<div class="flex">
+				<div class="flex-1">
+					<input class="text-gray-500" style="width: 33%;" type="number" name="startingIncome" id="startingIncome"/>
 				</div>
 			</div>
 			<div style="display: none" id="inflatedSalarySection">
-				<div class="row">
-					<div class="col-centered text-center"><p>Your current income should be</p></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><p>Your current income should be</p></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><h3 id="inflatedSalary"></h3></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><h3 id="inflatedSalary"></h3></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><p>to have the same spending power as when you started.</p></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><p>to have the same spending power as when you started.</p></div>
 				</div>
 			</div>
 		</div>
 		<div class="container-fluid" id="carSection">
 			<div style="height: 40px;"></div>
 			<!-- Car prices -->
-			<h2>Automobiles</h2>
-			<div class="row">
-				<div class="col-centered text-center">What did a typical car cost in <span name="year"></span>?</div>
+			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Automobiles</h2>
+			<div class="flex">
+				<div class="mx-auto text-center">What did a typical car cost in <span class="year"></span>?</div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>You would've purchased something like a</p></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><p>You would've purchased something like a</p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="carName"></h1></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="carName"></h1></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>for roughly</p></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><p>for roughly</p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="carValueThen"></h1></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="carValueThen"></h1></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center sticky-center"><p>which is the equivalent of </p></div>
+			<div class="flex">
+				<div class="mx-auto text-center sticky-center"><p>which is the equivalent of </p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="carValueNow"></h1></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="carValueNow"></h1></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>in 2023 dollars.</p></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><p>in 2023 dollars.</p></div>
 			</div>
-			<div class="row">	
-				<div class="col-centered text-center"><p>The actual typical cost of a new car now is <span style="font-weight: bold;" id="actualCarValueNow"></span> for something like a <span style="font-weight: bold;" id="actualCarNameNow"></span> (the most popular car currently being sold).</p></div>
+			<div class="flex">	
+				<div class="mx-auto text-center"><p>The actual typical cost of a new car now is <span style="font-weight: bold;" id="actualCarValueNow"></span> for something like a <span style="font-weight: bold;" id="actualCarNameNow"></span> (the most popular car currently being sold).</p></div>
 			</div>
 		</div>
 		<div class="container-fluid" id="rentSection">
 			<div style="height: 40px;"></div>
 			<!-- Rent prices  -->
-			<h2>Rent</h2>
-			<div class="row">
-				<div class="col-centered text-center">What did monthly rent typically cost in <span name="year"></span>?</div>
+			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Rent</h2>
+			<div class="flex">
+				<div class="mx-auto text-center">What did monthly rent typically cost in <span class="year"></span>?</div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>The average rent in the US was</p></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><p>The average rent in the US was</p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="rentPriceThen"></h1></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="rentPriceThen"></h1></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center sticky-center"><p>which is the equivalent of </p></div>
+			<div class="flex">
+				<div class="mx-auto text-center sticky-center"><p>which is the equivalent of </p></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><h1 id="rentPriceNow"></h1></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="rentPriceNow"></h1></div>
 			</div>
-			<div class="row">
-				<div class="col-centered text-center"><p>in 2023 dollars.</p></div>
+			<div class="flex">
+				<div class="mx-auto text-center"><p>in 2023 dollars.</p></div>
 			</div>
-			<div class="row">	
-				<div class="col-centered text-center"><p>The actual average cost of rent now is <span style="font-weight: bold;" id="actualRentNow"></span>.</p></div>
+			<div class="flex">	
+				<div class="mx-auto text-center"><p>The actual average cost of rent now is <span style="font-weight: bold;" id="actualRentNow"></span>.</p></div>
 			</div>
 
 		</div>
@@ -155,61 +177,61 @@
 			<div style="height: 40px;"></div>
 			<!-- Home prices
 			TODO maybe eventually break down by top cities, maybe also show home sizes -->
-			<h2>Home Purchases</h2>
+			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Home Purchases</h2>
 			<span id="houseDisclaimer"></span>
 			<div id="homeTable">
-				<div class="row">
-					<div class="col-centered text-center">What did a house cost to buy in <span name="year"></span>?</div>
+				<div class="flex">
+					<div class="mx-auto text-center">What did a house cost to buy in <span class="year"></span>?</div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><p>The average home price in the US was</p></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><p>The average home price in the US was</p></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><h1 id="homePriceThen"></h1></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="homePriceThen"></h1></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center sticky-center"><p>which is the equivalent of </p></div>
+				<div class="flex">
+					<div class="mx-auto text-center sticky-center"><p>which is the equivalent of </p></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><h1 id="homePriceNow"></h1></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><h1 class="font-extrabold text-lg" id="homePriceNow"></h1></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><p>in 2023 dollars.</p></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><p>in 2023 dollars.</p></div>
 				</div>
-				<div class="row">	
-					<div class="col-centered text-center"><p>The actual average cost of a home now is <span style="font-weight: bold;" id="actualHomeNow"></span>.</p></div>
+				<div class="flex">	
+					<div class="mx-auto text-center"><p>The actual average cost of a home now is <span style="font-weight: bold;" id="actualHomeNow"></span>.</p></div>
 			</div>
 			</div>
 		</div>
 		<div class="container-fluid" id="tuitionSection">
 			<div style="height: 40px;"></div>
 			<!--Tuition costs -->
-			<h2>Tuition</h2>
+			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Tuition</h2>
 			<span id="tuitionDisclaimer"></span>
 			<div id="tuitionTable">
-				<div class="row">
-					<div class="col-centered text-center">What did it cost to go to college in  <span name="year"></span>?</div>
+				<div class="flex">
+					<div class="mx-auto text-center">What did it cost to go to college in  <span class="year"></span>?</div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><p>A four-year degree at a public university was</p></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><p>A four-year degree at a public university was</p></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><h1 id="publicTuitionThen"></h1></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="publicTuitionThen"></h1></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><p>which is the equivalent of </p></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><p>which is the equivalent of </p></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><h1 id="publicTuitionNow"></h1></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><h1 class="font-extrabold text-lg"  id="publicTuitionNow"></h1></div>
 				</div>
-				<div class="row">
-					<div class="col-centered text-center"><p>in 2023 dollars.</p></div>
+				<div class="flex">
+					<div class="mx-auto text-center"><p>in 2023 dollars.</p></div>
 				</div>
-				<div class="row sticky-center">	
-					<div class="col-centered text-center"><p>What about a a private university? If you wanted to attend a private university for a four-year degree in <span name="year"></span>, you would have spent ~<span style="font-weight: bold;" id="privateTuitionThen"></span>, which is the equivalent of <span style="font-weight: bold;" id="privateTuitionNow"> in 2023 dollars.</span></p></div>
+				<div class="flex sticky-center">	
+					<div class="mx-auto text-center"><p>What about a a private university? If you wanted to attend a private university for a four-year degree in <span class="year"></span>, you would have spent ~<span style="font-weight: bold;" id="privateTuitionThen"></span>, which is the equivalent of <span style="font-weight: bold;" id="privateTuitionNow"> in 2023 dollars.</span></p></div>
 				</div>
-				<div class="row">	
-					<div class="col-centered text-center"><p>The actual cost of a public university four-year degree now is <span style="font-weight: bold;" id="actualPublicTuition"></span>, and a private university is <span style="font-weight: bold;" id="actualPrivateTuition"></span>.</p></div>
+				<div class="flex">	
+					<div class="mx-auto text-center"><p>The actual cost of a public university four-year degree now is <span style="font-weight: bold;" id="actualPublicTuition"></span>, and a private university is <span style="font-weight: bold;" id="actualPrivateTuition"></span>.</p></div>
 				</div>
 			</div>
 		</div>
@@ -220,7 +242,7 @@
 	    <section class="mb-1">
 	      <!-- Github -->
 	      <a
-	        class="btn btn-link btn-floating btn-lg text-dark m-1"
+	        class="px-4 py-2 border rounded hover:underline text-gray-900 m-1"
 	        href="https://github.com/thewhaleking/whydoifeelbroke.com"
 	        role="button"
 	        ><i class="fab fa-github"></i

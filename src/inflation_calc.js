@@ -393,10 +393,10 @@ function updateById(_id, value) {
 	return document.getElementById(_id).innerHTML = value
 }
 
-function updateByName(name, value) {
-	const fields = document.getElementsByName(name);
+function updateByClass(name, value) {
+	const fields = document.getElementsByClassName(name);
 	for (let i = 0; i < fields.length; i++) {
-		fields[i].innerHTML = value
+		fields[i].innerText = value
 	}
 }
 
@@ -448,7 +448,7 @@ function inflate() {
 		const home = houseTable[year];
 		const publicTuition = tuitionTable[year][0];
 		const privateTuition = tuitionTable[year][1];
-		let tuitionDiscalimer = "";
+		let tuitionDisclaimer = "";
 		let publicTuitionThen = "";
 		let publicTuitionNow = "";
 		let privateTuitionThen = "";
@@ -467,7 +467,7 @@ function inflate() {
 		const thenToNow = mostRecentCPI / cpi;
 
 		// updates
-		updateByName("year", year);	
+		updateByClass("year", year);
 		// income
 		updateById("value", formatter(100_000 * thenToNow));
 		updateById("pastValue", formatter(100_000 * nowToThen));
@@ -485,7 +485,7 @@ function inflate() {
 		updateById("actualRentNow", formatter(rentTable[johnOliver]));
 		if (year < 1963) {
 			// Update disclaimers
-			tuitionDiscalimer = "Tuition data are only available from 1963 onward.";
+			tuitionDisclaimer = "Tuition data are only available from 1963 onward.";
 			houseDisclaimer = "Home price data are only available from 1963 onward.";
 			document.getElementById("homeTable").style.display = "none";
 			document.getElementById("tuitionTable").style.display = "none";
@@ -510,7 +510,7 @@ function inflate() {
 		updateById("homePriceNow", homePriceNow);
 		updateById("actualHomeNow", actualHomeNow);
 		// tuition
-		updateById("tuitionDisclaimer", tuitionDiscalimer);
+		updateById("tuitionDisclaimer", tuitionDisclaimer);
 		updateById("publicTuitionThen", publicTuitionThen);
 		updateById("publicTuitionNow", publicTuitionNow);
 		updateById("privateTuitionThen", privateTuitionThen);
@@ -530,7 +530,7 @@ function inflate() {
 	}
 
 	catch (e) {
-		window.alert("Data is only available from 1947 on.");
+		window.alert(`Data is only available from ${Math.min(...Object.keys(cpiTable).map(Number))}  on.`);
 		console.error(e);
 		console.error(year);
 		yearBorn.value = "1992";
