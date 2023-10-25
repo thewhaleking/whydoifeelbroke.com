@@ -367,7 +367,8 @@ const countries = {
 			"carSection",
 			"rentSection",
 			"homeSection",
-			"tuitionSection"
+			"tuitionSection",
+			"aboutSection"
 		],
 		"next": "ZA"
 	},
@@ -379,7 +380,8 @@ const countries = {
 		"cpi": saCPI,
 		"workingSections": [
 			"incomeSection",
-			"salarySection"
+			"salarySection",
+			"aboutSection"
 		],
 		"next": "US"
 	}
@@ -544,14 +546,6 @@ yearBorn.addEventListener("change", inflate);
 yearStarted.addEventListener("change", salaryInflate);
 startingIncome.addEventListener("keyup", salaryInflate);
 document.getElementById("countryClick").addEventListener("click", changeCountry);
-window.addEventListener('scroll', function() {
-	// TODO this is trash, and is interim
-	if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-		footer.style.display = 'block';
-	} else {
-		footer.style.display = 'none';
-	}
-});
 
 
 function initLoad() {

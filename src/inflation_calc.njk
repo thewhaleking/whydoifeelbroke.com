@@ -25,7 +25,7 @@
 		</div>
 		</div>
 	</nav>
-	<nav class="bg-gray-50 dark:bg-gray-700">
+	{# <nav class="bg-gray-50 dark:bg-gray-700">
 		<div class="mx-auto max-w-screen-xl px-4 py-2">
 			<ul class="grid grid-cols-5 list-none p-0 m-0">
 				<li class="leading-tight">
@@ -45,10 +45,9 @@
 				</li>
 			</ul>
 		</div>
-	</nav>
+	</nav> #}
 	<div class="scrollport text-gray-500 dark:text-gray-300">
 		<div class="container-fluid px-8" id="incomeSection">
-			<div style="height: 40px;"></div>
 			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Income</h2>
 			<div class="flex">
 				<div class="mx-auto text-center">What would it take today to be the equivalent of a six-figure earner when you were born?</div>
@@ -77,9 +76,15 @@
 			<div class="flex">	
 				<div class="mx-auto text-center"><p>What about a millionaire? If you wanted to be the equivalent of a millionare in <span class="year"></span>, you would need to currently have <span style="font-weight: bold;" id="millionaire"></span></p></div>
 			</div>
+			<a href="#salarySection">
+				<svg class="arrows">
+					<path class="a1" d="M0 0 L30 32 L60 0"></path>
+					<path class="a2" d="M0 20 L30 52 L60 20"></path>
+					<path class="a3" d="M0 40 L30 72 L60 40"></path>
+				</svg>
+			</a>
 		</div>
 		<div class="container-fluid px-8" id="salarySection">
-			<div style="height: 40px;"></div>
 			<!-- Salary With Inflation -->
 			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Salary Change</h2>
 			<div class="flex">
@@ -113,9 +118,15 @@
 					<div class="mx-auto text-center"><p>to have the same spending power as when you started.</p></div>
 				</div>
 			</div>
+			<a href="#carSection">
+				<svg class="arrows">
+					<path class="a1" d="M0 0 L30 32 L60 0"></path>
+					<path class="a2" d="M0 20 L30 52 L60 20"></path>
+					<path class="a3" d="M0 40 L30 72 L60 40"></path>
+				</svg>
+			</a>
 		</div>
 		<div class="container-fluid px-8" id="carSection">
-			<div style="height: 40px;"></div>
 			<!-- Car prices -->
 			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Automobiles</h2>
 			<div class="flex">
@@ -145,9 +156,15 @@
 			<div class="flex">	
 				<div class="mx-auto text-center"><p>The actual typical cost of a new car now is <span style="font-weight: bold;" id="actualCarValueNow"></span> for something like a <span style="font-weight: bold;" id="actualCarNameNow"></span> (the most popular car currently being sold).</p></div>
 			</div>
+			<a href="#rentSection">
+				<svg class="arrows">
+					<path class="a1" d="M0 0 L30 32 L60 0"></path>
+					<path class="a2" d="M0 20 L30 52 L60 20"></path>
+					<path class="a3" d="M0 40 L30 72 L60 40"></path>
+				</svg>
+			</a>
 		</div>
 		<div class="container-fluid px-8" id="rentSection">
-			<div style="height: 40px;"></div>
 			<!-- Rent prices  -->
 			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Rent</h2>
 			<div class="flex">
@@ -171,11 +188,16 @@
 			<div class="flex">	
 				<div class="mx-auto text-center"><p>The actual average cost of rent now is <span style="font-weight: bold;" id="actualRentNow"></span>.</p></div>
 			</div>
-
+			<a href="#homeSection">
+				<svg class="arrows">
+					<path class="a1" d="M0 0 L30 32 L60 0"></path>
+					<path class="a2" d="M0 20 L30 52 L60 20"></path>
+					<path class="a3" d="M0 40 L30 72 L60 40"></path>
+				</svg>
+			</a>
 		</div>
 		
 		<div class="container-fluid px-8" id="homeSection">
-			<div style="height: 40px;"></div>
 			<!-- Home prices
 			TODO maybe eventually break down by top cities, maybe also show home sizes -->
 			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Home Purchases</h2>
@@ -203,9 +225,15 @@
 					<div class="mx-auto text-center"><p>The actual average cost of a home now is <span style="font-weight: bold;" id="actualHomeNow"></span>.</p></div>
 			</div>
 			</div>
+			<a href="#tuitionSection">
+				<svg class="arrows">
+					<path class="a1" d="M0 0 L30 32 L60 0"></path>
+					<path class="a2" d="M0 20 L30 52 L60 20"></path>
+					<path class="a3" d="M0 40 L30 72 L60 40"></path>
+				</svg>
+			</a>
 		</div>
 		<div class="container-fluid px-8" id="tuitionSection">
-			<div style="height: 40px;"></div>
 			<!--Tuition costs -->
 			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">Tuition</h2>
 			<span id="tuitionDisclaimer"></span>
@@ -235,29 +263,60 @@
 					<div class="mx-auto text-center"><p>The actual cost of a public university four-year degree now is <span style="font-weight: bold;" id="actualPublicTuition"></span>, and a private university is <span style="font-weight: bold;" id="actualPrivateTuition"></span>.</p></div>
 				</div>
 			</div>
+			<a href="#aboutSection">
+				<svg class="arrows">
+					<path class="a1" d="M0 0 L30 32 L60 0"></path>
+					<path class="a2" d="M0 20 L30 52 L60 20"></path>
+					<path class="a3" d="M0 40 L30 72 L60 40"></path>
+				</svg>
+			</a>
 		</div>
-	<footer class="text-center" style="background-color: #f1f1f1;">
-	  <!-- Grid container -->
-	  <div class="container pt-1">
-	    <!-- Section: Social media -->
-	    <section class="mb-1">
-	      <!-- Github -->
-	      <a
-	        class="px-4 py-2 border rounded hover:underline text-gray-900 m-1"
-	        href="https://github.com/thewhaleking/whydoifeelbroke.com"
-	        role="button"
-	        ><i class="fab fa-github"></i
-	      ></a>
-	    </section>
-	  </div>
-	  <div class="text-center text-dark p-2" style="background-color: rgba(0, 0, 0, 0.2);">
-	    American data is pulled from the
-	    <a class="text-dark" href="https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems">Bureau of Labor Statistics</a>
-	    and calculated using the Consumer Price Index (CPI) CUSR0000SA0 series.
-	    South African data is pulled from <a class="text-dark" href="https://inflationcalc.co.za/data.php">Stats SA</a>.
-	    For full list of data sources, see the source code in the GitHub link.
-	  </div>
-	</footer>
+		<div class="container-fluid px-8" id="aboutSection">
+			<!--Tuition costs -->
+			<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl text-center">About</h2>
+			<div class="flex py-2">
+				<div class="mx-auto text-center text-sm">
+					I created this website as a way to figure out why I, as a software developer, felt like my income should
+					be going farther than it does. I add to this website here and there, and always looking for ideas to add
+					to it. Feel free to open GitHub and make a pull request or open an issue. The code is all just basic HTML
+					and vanilla Javascript, so no frameworks needed.
+				</div>
+			</div>
+			<div class="flex py-2">
+				<div class="mx-auto text-center text-sm">
+					American data is pulled from the
+					<a class="text-dark" href="https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems">Bureau of Labor Statistics</a>
+					and calculated using the Consumer Price Index (CPI) CUSR0000SA0 series.
+				</div>
+			</div>
+			<div class="flex py-2">
+				<div class="mx-auto text-center text-sm">
+					South African data is pulled from <a class="text-dark" href="https://inflationcalc.co.za/data.php">Stats SA</a>.
+				</div>
+			</div>
+			<div class="flex py-2">
+				<div class="mx-auto text-center text-sm">
+					For full list of data sources, see the source code in the GitHub link.
+				</div>
+			</div>
+			<div class="flex pt-6">
+				<div class="mx-auto text-center">
+					<a
+							class="px-4 py-2 hover:underline text-gray-900 m-1"
+							href="https://github.com/thewhaleking/whydoifeelbroke.com"
+							role="button">
+						<i class="fab fa-github"></i>
+					</a>
+				</div>
+			</div>
+			<a href="#incomeSection">
+				<svg class="arrows">
+					<path class="a3" d="M0 32 L30 0 L60 32"></path>
+					<path class="a2" d="M0 52 L30 20 L60 52"></path>
+					<path class="a1" d="M0 72 L30 40 L60 72"></path>
+				</svg>
+			</a>
+		</div>
 	</div>
 </body>
 <script>
